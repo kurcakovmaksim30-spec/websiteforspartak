@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дом спорта «Спартак» в Красноярске: секции для детей и взрослых</title>
+<meta name="description" content="Дом спорта «Спартак» в Красноярске: бокс, акробатика, самбо, дзюдо, группы для малышей с 1 года и фитнес для взрослых. Проспект Красноярский Рабочий, 145. Пробное занятие со скидкой 50%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8161f;
+    --red-hover:#a10f17;
+    --ink:#eeeff2;
+    --muted:#9a9ea8;
+    --paper:#16171b;
+    --white:#0c0d0f;
+    --line:#2a2c33;
+    --dark:#050506;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+  h1,h2,h3,h4{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.01em;line-height:1.15}
+  .container{max-width:1160px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0}
+  .alt{background:var(--paper)}
+
+  /* Заголовки секций */
+  .head{max-width:640px;margin-bottom:52px}
+  .eyebrow{display:block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .head h2{font-size:clamp(30px,4vw,42px);text-transform:uppercase}
+  .head p{margin-top:16px;color:var(--muted);font-size:16px}
+
+  /* Кнопки */
+  .btn{display:inline-flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border:2px solid transparent;border-radius:4px;padding:15px 28px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .btn-red{background:var(--red);color:#fff}
+  .btn-red:hover{background:var(--red-hover)}
+  .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-line:hover{border-color:#fff}
+  .btn-small{padding:11px 20px;font-size:13px}
+  .btn-block{width:100%}
+
+  /* Шапка */
+  header{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(23,24,28,.96);transition:box-shadow .25s ease}
+  header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.25)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+  .logo{display:flex;align-items:center;gap:14px;color:#fff}
+  .logo-mark{width:42px;height:42px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Oswald',sans-serif;font-size:24px;font-weight:600;flex-shrink:0}
+  .logo-text b{display:block;font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;letter-spacing:.02em;line-height:1.1}
+  .logo-text span{display:block;font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase}
+  .nav-menu{display:flex;align-items:center;gap:28px}
+  .nav-menu a{color:rgba(255,255,255,.8);font-size:14px;font-weight:500;transition:color .2s}
+  .nav-menu a:hover{color:#fff}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .burger{display:none;background:none;border:none;cursor:pointer;width:40px;height:40px}
+  .burger span{display:block;width:22px;height:2px;background:#fff;margin:5px auto}
+
+  /* Главный экран */
+  .hero{background:linear-gradient(rgba(14,15,18,.82),rgba(14,15,18,.92)),url(images/photo1.jpg) center/cover no-repeat;color:#fff;padding:190px 0 130px}
+  .hero-badge{display:inline-block;font-size:13px;color:rgba(255,255,255,.7);letter-spacing:.04em;margin-bottom:24px;padding-left:14px;border-left:2px solid var(--red)}
+  .hero h1{font-size:clamp(40px,6vw,72px);text-transform:uppercase;max-width:860px;font-weight:600}
+  .hero h1 em{display:block;font-style:normal;font-family:'Montserrat',sans-serif;font-size:clamp(17px,2vw,21px);font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,.75);margin-top:22px;line-height:1.5}
+  .hero-sub{margin-top:24px;max-width:580px;color:rgba(255,255,255,.72);font-size:16px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+  .hero-facts{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:14px;color:rgba(255,255,255,.6);max-width:760px}
+
+  /* Промо-полоса */
+  .promo-strip{background:var(--red);color:#fff;padding:18px 0;font-size:15px}
+  .promo-strip .container{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 40px;text-align:center}
+  .promo-strip b{font-weight:700}
+
+  /* О нас */
+  .about-text{font-size:18px;line-height:1.75;max-width:720px;color:#c9ccd3}
+
+  /* Направления */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .card{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--red);padding:34px 32px;display:flex;flex-direction:column}
+  .card h3{font-size:26px;text-transform:uppercase;margin-bottom:12px}
+  .card > p{color:var(--muted);font-size:15px;margin-bottom:18px}
+  .card ul{flex-grow:1;margin-bottom:26px}
+  .card li{position:relative;padding-left:20px;font-size:14.5px;margin-bottom:8px}
+  .card li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:2px;background:var(--red)}
+  .card-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+  .age-tag{font-size:13px;color:var(--muted)}
+
+  /* Цены */
+  .price-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line)}
+  table{width:100%;border-collapse:collapse;min-width:680px}
+  th,td{padding:18px 22px;text-align:left;font-size:15px;border-bottom:1px solid var(--line)}
+  thead th{background:var(--dark);color:#fff;font-weight:600;font-size:13px;letter-spacing:.04em;border-bottom:none}
+  tbody td:first-child{font-weight:600}
+  tbody tr:last-child td{border-bottom:none}
+  .price{white-space:nowrap}
+  .price-note{margin-top:18px;font-size:14px;color:var(--muted)}
+  .price-note a{color:var(--red);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:30px;font-size:15px}
+  .chips span b{color:var(--red)}
+
+  /* Комплекс */
+  .infra-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;max-width:900px}
+  .infra-item{padding:24px 0;border-bottom:1px solid var(--line)}
+  .infra-item b{display:block;font-family:'Oswald',sans-serif;font-size:19px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+  .infra-item p{font-size:15px;color:var(--muted)}
+
+  /* Галерея */
+  .g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .g-item img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+  .g-item figcaption{padding:12px 2px 0;font-size:14px;color:var(--muted)}
+  .gallery-note{margin-top:24px;font-size:13px;color:var(--muted)}
+
+  /* FAQ */
+  .faq-list{max-width:820px}
+  details{border-bottom:1px solid var(--line)}
+  details:first-child{border-top:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;padding:22px 40px 22px 0;font-weight:600;font-size:16px;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--red);font-weight:300}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 40px 24px 0;color:var(--muted);font-size:15px}
+
+  /* Запись */
+  .signup{background:var(--dark);color:#fff}
+  .signup-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+  .signup h2{font-size:clamp(30px,3.6vw,40px);text-transform:uppercase}
+  .signup .lead{margin-top:16px;color:rgba(255,255,255,.7)}
+  .signup-phones{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+  .signup-phones a{font-family:'Oswald',sans-serif;font-size:22px;font-weight:500;color:#fff}
+  .signup-phones a:hover{color:#ff8a92}
+  .signup-phones span{font-size:14px;color:rgba(255,255,255,.5);font-family:'Montserrat',sans-serif}
+  .promo-box{margin-top:36px;padding-left:18px;border-left:2px solid var(--red);color:rgba(255,255,255,.8);font-size:15px}
+  .promo-box b{color:#fff}
+  .form-card{background:var(--white);color:var(--ink);padding:40px;border-radius:4px}
+  .form-card h3{font-size:24px;text-transform:uppercase;margin-bottom:6px}
+  .form-sub{font-size:14px;color:var(--muted);margin-bottom:26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:15px;padding:13px 14px;border:1px solid #3a3d46;border-radius:3px;background:#0c0d0f;color:var(--ink)}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .field textarea{resize:vertical;min-height:72px}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:4px 0 22px}
+  .agree input{margin-top:3px;accent-color:var(--red)}
+  .form-success{display:none;text-align:center;padding:40px 10px}
+  .form-success h4{font-size:26px;text-transform:uppercase;margin-bottom:10px}
+  .form-success p{color:var(--muted);font-size:15px}
+  .form-success.show{display:block}
+  .form-fields.hide{display:none}
+
+  /* Контакты */
+  .contacts-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+  .c-row{padding:22px 0;border-bottom:1px solid var(--line)}
+  .c-row:first-child{padding-top:0}
+  .c-row:last-child{border-bottom:none}
+  .c-row b{display:block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+  .c-row p,.c-row a{font-size:15px;color:#c9ccd3}
+  .c-row a:hover{color:var(--red)}
+  .c-row .small{margin-top:8px;font-size:14px;color:var(--muted)}
+  .map-wrap{border:1px solid var(--line);min-height:380px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;padding:44px;background:var(--paper)}
+  .map-wrap b{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;text-transform:uppercase}
+  .map-wrap p{color:var(--muted);font-size:15px}
+
+  /* Футер */
+  footer{background:var(--dark);color:rgba(255,255,255,.6);padding:64px 0 32px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-top h5{font-family:'Oswald',sans-serif;color:#fff;font-size:15px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+  .foot-top p,.foot-top a{display:block;font-size:14px;margin-bottom:9px}
+  .foot-top a:hover{color:#fff}
+  .foot-top .foot-about{max-width:340px;margin-top:18px}
+  .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding-top:24px;font-size:13px}
+
+  /* Адаптив */
+  @media (max-width:960px){
+    section{padding:72px 0}
+    .cards{grid-template-columns:1fr}
+    .infra-list{grid-template-columns:1fr}
+    .g-grid{grid-template-columns:repeat(2,1fr)}
+    .signup-grid,.contacts-grid{grid-template-columns:1fr;gap:44px}
+    .foot-top{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:720px){
+    .nav-menu{position:fixed;inset:76px 0 auto 0;background:var(--dark);flex-direction:column;align-items:flex-start;padding:24px;gap:20px;transform:translateY(-120%);transition:transform .3s ease;z-index:-1}
+    .nav-menu.open{transform:translateY(0)}
+    .nav-menu a{font-size:16px}
+    .burger{display:block}
+    .nav-cta .btn{display:none}
+    .hero{padding:140px 0 90px}
+    .g-grid{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr}
+    .form-card{padding:28px 22px}
+    .map-wrap{padding:28px}
+    .head{margin-bottom:36px}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a class="logo" href="#hero" aria-label="На главную">
+      <div class="logo-mark">С</div>
+      <div class="logo-text">
+        <b>Дом спорта «Спартак»</b>
+        <span>Красноярск · Свердловский район</span>
+      </div>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#about">О нас</a>
+      <a href="#sections">Секции</a>
+      <a href="#prices">Цены</a>
+      <a href="#infra">Комплекс</a>
+      <a href="#gallery">Фото</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#signup" class="btn btn-red btn-small">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="container">
+    <span class="hero-badge">Красноярск, проспект Красноярский Рабочий, 145</span>
+    <h1>Дом спорта «Спартак»
+      <em>Бокс, акробатика, самбо, дзюдо, группы для малышей и фитнес для взрослых. Больше сорока лет на одном месте.</em>
+    </h1>
+    <div class="hero-actions">
+      <a href="#signup" class="btn btn-red">Записаться на пробное</a>
+      <a href="#sections" class="btn btn-line">Посмотреть секции</a>
+    </div>
+    <p class="hero-facts">Залы на 20–30 человек · 6 направлений · открыты ежедневно с 08:00 до 23:00</p>
+  </div>
+</section>
+
+<div class="promo-strip">
+  <div class="container">
+    <span>Первое пробное занятие со скидкой <b>50%</b></span>
+    <span>Абонемент в день пробного: ещё <b>−10%</b></span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <span class="eyebrow">О нас</span>
+    <p class="about-text">Дом спорта работает больше сорока лет на проспекте Красноярский Рабочий, 145. Сюда приводят малышей с родителями, школьников на бокс, акробатику и единоборства, а взрослых на вечерние группы и фитнес.</p>
+  </div>
+</section>
+
+<section id="sections" class="alt">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Секции</span>
+      <h2>Направления</h2>
+      <p>Группы для малышей от 1 года, секции для детей с 7 лет и группы для взрослых. Точное расписание уточняйте у администраторов.</p>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <h3>Бокс</h3>
+        <p>Основное направление дома. Занимаемся на базе СДЮСШОР им. Н.Д. Валова, с нуля: ОФП, стойка, первые спарринги.</p>
+        <ul>
+          <li>Детские группы с 7 лет</li>
+          <li>Вечерние группы для взрослых</li>
+          <li>Индивидуальные занятия и сплит на двоих</li>
+          <li>Ежегодное первенство Свердловского района</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">С 7 лет и взрослые</span>
+          <button class="btn btn-red btn-small js-signup" data-section="Бокс">Записаться</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Акробатика</h3>
+        <p>Школа «Acrosport»: батут, акробатическая дорожка, растяжка и базовая сила.</p>
+        <ul>
+          <li>Занятия с 4 лет</li>
+          <li>Гибкость и координация</li>
+          <li>Подготовка к соревнованиям и разрядам</li>
+          <li>Филиалы: Курчатова 15в, Железняка 40а, Семафорная 129</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">С 4 лет</span>
+          <button class="btn btn-red btn-small js-signup" data-section="Акробатика и гимнастика (Acrosport)">Записаться</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Самбо и дзюдо</h3>
+        <p>Классические единоборства для детей. Группы делим по возрасту и уровню подготовки.</p>
+        <ul>
+          <li>Самбо</li>
+          <li>Дзюдо</li>
+          <li>Набор с 7 лет</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">С 7 лет</span>
+          <button class="btn btn-red btn-small js-signup" data-section="Самбо">Записаться</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Раннее развитие</h3>
+        <p>Гимнастика и фитнес для самых маленьких. Занимаются вместе с мамой или папой.</p>
+        <ul>
+          <li>Группы «мама + малыш» для детей 1–3 лет</li>
+          <li>Подготовительные группы для 4–6 лет</li>
+          <li>Знакомство со спортом без нагрузки</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">От 1 года</span>
+          <button class="btn btn-red btn-small js-signup" data-section="Раннее развитие (1–3 года)">Записаться</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Фитнес</h3>
+        <p>Групповые программы для взрослых в клубе «Анастасия».</p>
+        <ul>
+          <li>Групповые фитнес-программы</li>
+          <li>Шейпинг и растяжка</li>
+          <li>Работаем до 23:00, время подбираем под вас</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">Взрослые</span>
+          <button class="btn btn-red btn-small js-signup" data-section="Фитнес для взрослых (клуб «Анастасия»)">Записаться</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Аренда залов</h3>
+        <p>Залы можно арендовать по часам. Проводим турниры и мероприятия.</p>
+        <ul>
+          <li>Зал бокса или фитнес-зал, 20–30 человек</li>
+          <li>Свои тренеры и мероприятия по договорённости</li>
+          <li>Внутренние и открытые турниры</li>
+        </ul>
+        <div class="card-foot">
+          <span class="age-tag">Аренда и мероприятия</span>
+          <a class="btn btn-red btn-small" href="tel:+73912364517">Позвонить</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="prices" id="prices">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Цены</span>
+      <h2>Стоимость занятий</h2>
+      <p>Разовые занятия, абонементы на 8 и 12 занятий, индивидуальные тренировки.</p>
+    </div>
+
+    <div class="price-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Направление</th>
+            <th>Разовое</th>
+            <th>Абонемент на 8</th>
+            <th>Абонемент на 12</th>
+            <th>Индивидуально</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Бокс, группы</td><td class="price">500 ₽</td><td class="price">3 600 ₽</td><td class="price">5 000 ₽</td><td class="price">1 000 ₽</td></tr>
+          <tr><td>Бокс, сплит на двоих</td><td colspan="4">Уточните по телефону</td></tr>
+          <tr><td>Акробатика</td><td class="price">500 ₽</td><td class="price">3 600 ₽</td><td class="price">5 000 ₽</td><td class="price">1 000 ₽</td></tr>
+          <tr><td>Самбо / дзюдо</td><td class="price">500 ₽</td><td class="price">3 600 ₽</td><td class="price">5 000 ₽</td><td>—</td></tr>
+          <tr><td>Раннее развитие, 1–3 года</td><td class="price">450 ₽</td><td class="price">3 200 ₽</td><td class="price">4 500 ₽</td><td>—</td></tr>
+          <tr><td>Подготовка, 4–6 лет</td><td class="price">450 ₽</td><td class="price">3 200 ₽</td><td class="price">4 500 ₽</td><td>—</td></tr>
+          <tr><td>Фитнес, «Анастасия»</td><td class="price">500 ₽</td><td class="price">3 600 ₽</td><td class="price">5 000 ₽</td><td class="price">1 000 ₽</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">Цены могут меняться. Актуальные уточняйте по телефону <a href="tel:+73912364517">+7 (391) 236-45-17</a>.</p>
+
+    <div class="chips">
+      <span>Оплата наличными и картой</span>
+      <span><b>−50%</b> на первое пробное занятие</span>
+      <span><b>−10%</b> на абонемент, купленный в день пробного</span>
+    </div>
+  </div>
+</section>
+
+<section id="infra" class="alt">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Комплекс</span>
+      <h2>Как устроен дом</h2>
+      <p>Трёхэтажное кирпичное здание на проспекте Красноярский Рабочий, 145.</p>
+    </div>
+    <div class="infra-list">
+      <div class="infra-item"><b>Зал бокса</b><p>Специализированный зал на базе СДЮСШОР им. Н.Д. Валова.</p></div>
+      <div class="infra-item"><b>Зал фитнеса</b><p>Для групповых и индивидуальных тренировок.</p></div>
+      <div class="infra-item"><b>Вместимость</b><p>20–30 человек в каждом зале.</p></div>
+      <div class="infra-item"><b>Парковка</b><p>Есть у здания.</p></div>
+      <div class="infra-item"><b>Пандус</b><p>Заезд для маломобильных посетителей.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Фото</span>
+      <h2>Здание и окрестности</h2>
+    </div>
+    <div class="g-grid">
+      <figure class="g-item"><img src="images/photo2.jpg" alt="Фасад Дома спорта «Спартак»" loading="lazy"><figcaption>Фасад на проспекте Красноярский Рабочий</figcaption></figure>
+      <figure class="g-item"><img src="images/photo4.jpg" alt="Здание Дома спорта «Спартак» и окрестности" loading="lazy"><figcaption>Здание и окрестности</figcaption></figure>
+      <figure class="g-item"><img src="images/photo1.jpg" alt="Здание Дома спорта «Спартак» в Красноярске" loading="lazy"><figcaption>Дом спорта «Спартак»</figcaption></figure>
+      <figure class="g-item"><img src="images/photo5.jpg" alt="Дом спорта «Спартак», вид снаружи" loading="lazy"><figcaption>Вид снаружи</figcaption></figure>
+      <figure class="g-item"><img src="images/photo6.jpg" alt="Здание на проспекте Красноярский Рабочий, 145" loading="lazy"><figcaption>С проспекта Красноярский Рабочий</figcaption></figure>
+      <figure class="g-item"><img src="images/photo3.jpg" alt="Дом спорта «Спартак» и здание красноярского цирка" loading="lazy"><figcaption>Рядом с красноярским цирком</figcaption></figure>
+    </div>
+    <p class="gallery-note">Фото взяты из открытых источников: Яндекс.Карты, PastVu, городские СМИ.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Вопросы</span>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>С какого возраста можно приводить ребёнка?</summary>
+        <p>С 1 года есть группы «мама + малыш», занятия проходят вместе с родителями. Для детей 4–6 лет есть подготовительные группы. В бокс и единоборства берём с 7 лет.</p>
+      </details>
+      <details>
+        <summary>Нужна ли спортивная страховка?</summary>
+        <p>Рекомендуем оформить спортивную страховку, она нужна для участия в соревнованиях. Подскажем, как её оформить.</p>
+      </details>
+      <details>
+        <summary>Что взять на первое занятие?</summary>
+        <p>Спортивную форму, сменную обувь и воду. Остальное уточните у администратора.</p>
+      </details>
+      <details>
+        <summary>Какие способы оплаты?</summary>
+        <p>Наличные и банковские карты.</p>
+      </details>
+      <details>
+        <summary>Как записаться?</summary>
+        <p>Через форму на этой странице или по телефону. Администратор подберёт секцию и время.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="container signup-grid">
+    <div>
+      <span class="eyebrow" style="color:#ff8a92">Запись</span>
+      <h2>Пробное занятие</h2>
+      <p class="lead">Оставьте заявку, администратор перезвонит и подберёт время.</p>
+      <div class="signup-phones">
+        <a href="tel:+73912364517">+7 (391) 236-45-17</a>
+        <a href="tel:+73912687400">+7 (391) 268-74-00</a>
+        <a href="tel:+79233017411">+7 (923) 301-74-11</a>
+        <span>Ежедневно с 08:00 до 23:00</span>
+      </div>
+      <div class="promo-box"><b>Акция:</b> купите абонемент в день пробного занятия и получите ещё 10% скидки.</div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-fields" id="formFields">
+        <h3>Заявка</h3>
+        <p class="form-sub">Заполните форму, и мы свяжемся с вами.</p>
+        <form id="signupForm" novalidate>
+          <div class="field">
+            <label for="fName">Как вас зовут *</label>
+            <input type="text" id="fName" name="name" placeholder="Например, Мария" required>
+          </div>
+          <div class="field">
+            <label for="fPhone">Телефон *</label>
+            <input type="tel" id="fPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <label for="fSection">Секция</label>
+            <select id="fSection" name="section">
+              <option value="" selected>Пока не определились, нужна консультация</option>
+              <option>Бокс</option>
+              <option>Акробатика и гимнастика (Acrosport)</option>
+              <option>Самбо</option>
+              <option>Дзюдо</option>
+              <option>Раннее развитие (1–3 года)</option>
+              <option>Раннее развитие (4–6 лет)</option>
+              <option>Фитнес для взрослых (клуб «Анастасия»)</option>
+              <option>Аренда зала / мероприятие</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fAge">Возраст</label>
+            <select id="fAge" name="age">
+              <option>1–3 года (мама + малыш)</option>
+              <option>4–6 лет</option>
+              <option selected>7–10 лет</option>
+              <option>11–14 лет</option>
+              <option>15+ лет</option>
+              <option>Взрослый</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fComment">Комментарий</label>
+            <textarea id="fComment" name="comment" placeholder="Например: удобнее утром"></textarea>
+          </div>
+          <label class="agree">
+            <input type="checkbox" id="fAgree" required>
+            <span>Согласен на обработку персональных данных и на звонок по телефону</span>
+          </label>
+          <button type="submit" class="btn btn-red btn-block">Отправить заявку</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <h4>Заявка принята</h4>
+        <p>Перезвоним в рабочее время, с 08:00 до 23:00.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="head">
+      <span class="eyebrow">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contacts-grid">
+      <div>
+        <div class="c-row">
+          <b>Адрес</b>
+          <p>Красноярск, Свердловский район,<br>проспект им. газеты «Красноярский Рабочий», 145</p>
+          <p class="small">Филиалы школы акробатики: ул. Курчатова, 15в; ул. Партизана Железняка, 40а; ул. Семафорная, 129</p>
+        </div>
+        <div class="c-row">
+          <b>Телефоны</b>
+          <p><a href="tel:+73912364517">+7 (391) 236-45-17</a><br><a href="tel:+73912687400">+7 (391) 268-74-00</a><br><a href="tel:+79233017411">+7 (923) 301-74-11</a></p>
+          <p class="small">По записи: <a href="tel:+79233071153">+7 (923) 307-11-53</a> (Наталья), <a href="tel:+79131974365">+7 (913) 197-43-65</a> (Максим)</p>
+        </div>
+        <div class="c-row">
+          <b>Время работы</b>
+          <p>Ежедневно с 08:00 до 23:00, без перерыва</p>
+        </div>
+        <div class="c-row">
+          <b>Оплата</b>
+          <p>Наличные и банковские карты</p>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <b>Дом спорта «Спартак»</b>
+        <p>Красноярск, проспект имени газеты «Красноярский Рабочий», 145</p>
+        <a class="btn btn-red btn-small" href="https://2gis.ru/krasnoyarsk/search/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D1%8F%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20145" target="_blank" rel="noopener">Открыть на карте 2ГИС</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <a class="logo" href="#hero">
+          <div class="logo-mark">С</div>
+          <div class="logo-text"><b>Дом спорта «Спартак»</b><span>Красноярск · Свердловский район</span></div>
+        </a>
+        <p class="foot-about">Бокс, акробатика, единоборства, раннее развитие и фитнес для детей и взрослых.</p>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <p>просп. им. газеты «Красноярский Рабочий», 145</p>
+        <a href="tel:+73912364517">+7 (391) 236-45-17</a>
+        <a href="tel:+73912687400">+7 (391) 268-74-00</a>
+        <a href="tel:+79233017411">+7 (923) 301-74-11</a>
+      </div>
+      <div>
+        <h5>Навигация</h5>
+        <a href="#about">О нас</a>
+        <a href="#sections">Секции</a>
+        <a href="#prices">Цены</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#signup">Запись</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Дом спорта «Спартак», Красноярск</span>
+      <span>Ежедневно 08:00–23:00 · наличные и карты</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('navMenu');
+  burger.addEventListener('click', () => navMenu.classList.toggle('open'));
+  navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+
+  document.querySelectorAll('.js-signup').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sel = document.getElementById('fSection');
+      [...sel.options].forEach(o => { if (o.text === btn.dataset.section) sel.value = o.value; });
+      document.getElementById('signup').scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // Демо-форма: заявки никуда не отправляются, см. README.md
+  const form = document.getElementById('signupForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = document.getElementById('fName');
+    const phone = document.getElementById('fPhone');
+    const agree = document.getElementById('fAgree');
+    if (!name.value.trim()) { name.focus(); name.style.borderColor = 'var(--red)'; return; }
+    if (!phone.value.trim()) { phone.focus(); phone.style.borderColor = 'var(--red)'; return; }
+    if (!agree.checked) { agree.focus(); return; }
+    document.getElementById('formFields').classList.add('hide');
+    document.getElementById('formSuccess').classList.add('show');
+  });
+</script>
+</body>
+</html>
